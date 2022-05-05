@@ -23,39 +23,39 @@ import imgHarry9 from '../assets/harry/img9.png';
 export const ImageList = [
     [
         imgCat9,
-        imgHarry7
-    ],
-    [
-        imgCat8,
         imgHarry8
     ],
     [
-        imgCat7,
+        imgCat8,
         imgHarry9
     ],
     [
-        imgCat6,
-        imgHarry4
-    ],
-    [
-        imgCat5,
-        imgHarry5
-    ],
-    [
-        imgCat4,
-        imgHarry6
-    ],
-    [
-        imgCat3,
+        imgCat7,
         imgHarry1
     ],
     [
-        imgCat2,
+        imgCat6,
+        imgHarry5
+    ],
+    [
+        imgCat5,
+        imgHarry6
+    ],
+    [
+        imgCat4,
+        imgHarry7
+    ],
+    [
+        imgCat3,
         imgHarry2
     ],
     [
-        imgCat1,
+        imgCat2,
         imgHarry3
+    ],
+    [
+        imgCat1,
+        imgHarry4
     ],
     
 ]

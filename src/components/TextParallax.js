@@ -9,29 +9,36 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
 
+    h1 {
+        text-align: center;
+    }
+
+    &.position-absolute {
+        bottom: 5%;
+    }
+
     .i-block {
         display: inline-block;
+        font-size: 38px;
+        font-weight: bold;
     }
 `
 
 const TextParallax = (props) => {
     const copy = props.copy.split("");
-
     return (
-        <Wrapper>
-            <div>
-                <h1>
-                    {copy.map((letter, index) => {
-                        return <Parallax 
-                            key={index}
-                            translateX={[0, 100 * (index - 2)]}
-                            className="i-block"
-                        >
-                            {letter}
-                        </Parallax>
-                    })}
-                </h1>
-            </div>
+        <Wrapper className={props.wrapperClassName}>
+            <h1 className={props.className}>
+                {copy.map((letter, index) => {
+                    return <Parallax 
+                        key={index}
+                        translateX={[0, 100 * (index - 3)]}
+                        className="i-block"
+                    >
+                        {letter}
+                    </Parallax>
+                })}
+            </h1>
         </Wrapper>
     )
 }

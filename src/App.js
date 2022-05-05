@@ -72,15 +72,20 @@ const App = () => {
     }
 
     return (
-        <Wrapper>
-            <div>
-                <Circle size="sm" ref={addCircleRef} delay={0} />
-                <Circle size="md" ref={addCircleRef} delay={0.1} />
-                <Circle size="lg" ref={addCircleRef} delay={0.2} />
+        <>
+            <Wrapper>
+                <div>
+                    <Circle size="sm" ref={addCircleRef} delay={0} />
+                    <Circle size="md" ref={addCircleRef} delay={0.1} />
+                    <Circle size="lg" ref={addCircleRef} delay={0.2} />
+                </div>
+                <Button className="theme-toggle" action={toggleTheme}>Change Color</Button>
+                <MainBanner />
+            </Wrapper>
+            <div className="vh-100">
+                how are you
             </div>
-            <Button className="theme-toggle" action={toggleTheme}>Change Color</Button>
-            <MainBanner />
-        </Wrapper>
+        </>
     )
 }
 

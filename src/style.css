@@ -1,3 +1,34 @@
+/* 
+    Css Starts from here.
+*/
+
+.bold {
+    font-weight: 500;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+.color-blue {
+    color: var(--color-blue);
+}
+
+.dash-title {
+    position: relative;
+}
+
+.dash-title::before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 40px;
+    background-color: var(--grey-200);
+    top: -10px;
+}
+
+
+
 .image-container {
     width: 150px;
     height: 150px;

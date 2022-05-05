@@ -5,6 +5,8 @@ import SplitImages from './elements/SplitImages';
 import { gsap } from 'gsap';
 import { Row, Col, Container } from "react-bootstrap";
 import Button from './elements/Button';
+import TextParallax from './TextParallax';
+import { GiClick } from 'react-icons/gi';
 
 const ImageContainer = styled.div`
     display: grid;
@@ -16,18 +18,17 @@ const ImageContainer = styled.div`
 
     .overlay {
         position: absolute;
+        flex-direction: column;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         color: var(--primary-100);
-        background-color: rgba(0, 0, 0, 0.3);  
+        background-color: rgba(0, 0, 0, 0.5);  
         height: 100%;
         transition: 2s linear ease-in-out;
-        &.none {
-            visibility: hidden;
-            height: 0;
-        }
+        z-index: 2;
+        gap: 10px;
     }
 `
 
@@ -41,48 +42,41 @@ const Heading = styled.h3`
 `
 
 const MainBanner = () => {
-    const [images, setImages] = useState(ImageList);
-    const [overlayClass, setOverlayClass] = useState("overlay");
-    const [isShuffled, setIsShuffled] = useState(false);
+    const [isFlipped, setIsFlipped] = useState(false);
     const containerRef = useRef(null);
     const overlayRef = useRef(null);
 
     useEffect(() => {
         setTimeout(() => {
-            setOverlayClass("overlay none");
+            gsap.fromTo(overlayRef.current, { opacity: 1, height: "100%" }, {opacity: 0, height: 0, duration: 1, ease: 'power1.out'});
         }, 2000);
-        clickToShuffle();
     }, []);
 
-    const clickToShuffle = () => {
-        setIsShuffled(!isShuffled);
-        let shuffledImages = [...images];
-        shuffledImages.sort(() => Math.random() - 0.5);
-        gsap.fromTo(containerRef.current, { margin: 20, opacity: 0 }, {margin: 0, opacity: 1, duration: 0.5, ease: 'power1.out'});
-        if (isShuffled) {
-            setImages(shuffledImages);
-        } else {
-            setImages(ImageList);
-        }
+    const clickToFlip = () => {
+        setIsFlipped(!isFlipped);
+        gsap.fromTo(containerRef.current, { gap: "20px" }, {gap: 0, duration: 1, ease: 'power1.out'});
     }
 
     return (
         <Container className="vh-100">
-            <Row className="h-100 align-items-center">
+            <Row className="h-100 align-items-center position-relative">
+                <TextParallax copy={`Harry${' '}Hu`} className="color-blue bold" wrapperClassName="position-absolute" />
                 <Col md={6}>
-                    <h1 className="color-blue bold">Harry's personal project.</h1>
+                    <h1 className="color-blue bold dash-title">Harry's personal project.</h1>
                     <Heading>An Enthusiastic <span>Front-end</span> Web Developer</Heading>
+                    <p className="m-0">And I have a cute cat!</p>
                 </Col>
                 <Col md={5} className="offset-md-1">
                     <ImageContainer ref={containerRef}>
-                        <div className={`${overlayClass} d-flex justify-content-center align-items-center`} ref={overlayRef}>
+                        <div className="overlay d-flex justify-content-center align-items-center" ref={overlayRef}>
+                            <GiClick color={"#9fb3c8"} size={"50px"} />
                             <h2>Click to see the Effect</h2>
                         </div>
-                        {images.map((image, index) => {
-                            return <SplitImages key={index} image={image} background="red" />
+                        {ImageList.map((image, index) => {
+                            return <SplitImages key={index} image={image} action={clickToFlip} isFlipped={isFlipped} />
                         })}       
                     </ImageContainer>
-                    <Button className="mt-3" action={clickToShuffle}>{isShuffled ? "Shuffle" : "Restore"}</Button>   
+                    <Button className="mt-3 d-flex align-items-center" action={clickToFlip}>Click to Flip <GiClick color={"#9fb3c8"} size={"24px"} style={{marginLeft: "10px"}} /></Button>   
                 </Col>
             </Row>
         </Container>
