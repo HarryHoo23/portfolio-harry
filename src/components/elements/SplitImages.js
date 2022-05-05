@@ -18,8 +18,8 @@ const SplitImages = ({ image }) => {
 
     return (
         <div className="image-container" ref={containerRef} onClick={() => setFlipped(!flipped)}>
-            <animated.div style={{ opacity, transform, backgroundSize: "cover" }} />
-            <animated.div style={{ opacity, transform, backgroundImage: `url(${image})`, backgroundSize: "cover" }} />
+            <animated.div style={{ opacity: 1, transform, backgroundImage: `url(${image[1]})`, backgroundSize: "cover" }} />
+            <animated.div style={{ opacity, transform, backgroundImage: `url(${image[0]})`, backgroundSize: "cover" }} />
         </div>
       )
 }
