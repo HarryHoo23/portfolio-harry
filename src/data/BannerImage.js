@@ -18,8 +18,6 @@ import imgHarry7 from '../assets/harry/img7.png';
 import imgHarry8 from '../assets/harry/img8.png';
 import imgHarry9 from '../assets/harry/img9.png';
 
- 
-
 export const ImageList = [
     [
         imgCat9,
