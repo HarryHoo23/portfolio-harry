@@ -8,7 +8,6 @@ const Wrapper = styled.div`
     align-items: space-around;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 
     .i-block {
         display: inline-block;
@@ -21,17 +20,17 @@ const TextParallax = (props) => {
     return (
         <Wrapper>
             <div>
-                <h2>
+                <h1>
                     {copy.map((letter, index) => {
                         return <Parallax 
                             key={index}
-                            translateX={[0, 100 * (index - 3)]}
+                            translateX={[0, 100 * (index - 2)]}
                             className="i-block"
                         >
                             {letter}
                         </Parallax>
                     })}
-                </h2>
+                </h1>
             </div>
         </Wrapper>
     )

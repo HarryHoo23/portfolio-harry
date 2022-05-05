@@ -49,5 +49,8 @@
   },
   "devDependencies": {
     "netlify-cli": "^3.4.5"
+  },
+  "peerDependencies": {
+    "react-spring": "^8.0.27"
   }
 }

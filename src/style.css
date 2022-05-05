@@ -1,0 +1,18 @@
+.image-container {
+    width: 150px;
+    height: 150px;
+    transform-style: flat;
+}
+
+.image-container>div {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    will-change: transform;
+    cursor: pointer;
+}

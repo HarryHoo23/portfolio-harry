@@ -136,3 +136,20 @@ small,
   box-shadow: none;
   transform: translateY(0);
 }
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+.color-blue {
+    color: var(--primary-800);
+}
