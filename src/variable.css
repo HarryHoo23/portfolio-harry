@@ -60,6 +60,7 @@
     --textColor: #e0fcff;
     --btnBgColor: #bcccdc;
     --btnTextColor: #102a43;
+    --color-blue: #54d1db;
 }
 
 .light-theme {
@@ -67,6 +68,7 @@
     --textColor: #102a43;
     --btnBgColor: #243b53;
     --btnTextColor: #e0fcff;
+    --color-blue: #0a6c74;
 }
 
 body {
@@ -151,5 +153,5 @@ img {
 }
 
 .color-blue {
-    color: var(--primary-800);
+    color: var(--color-blue);
 }

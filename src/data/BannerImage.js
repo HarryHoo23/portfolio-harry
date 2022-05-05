@@ -1,13 +1,14 @@
-import img1 from '../assets/banner/1.jpg';
-import img2 from '../assets/banner/2.jpg';
-import img3 from '../assets/banner/3.jpg';
-import img4 from '../assets/banner/4.jpg';
-import img5 from '../assets/banner/5.jpg';
-import img6 from '../assets/banner/6.jpg';
-import img7 from '../assets/banner/7.jpg';
-import img8 from '../assets/banner/8.jpg';
-import img9 from '../assets/banner/9.jpg';
+import imgCat1 from '../assets/banner/cat/1.png';
+import imgCat2 from '../assets/banner/cat/2.png';
+import imgCat3 from '../assets/banner/cat/3.png';
+import imgCat4 from '../assets/banner/cat/4.png';
+import imgCat5 from '../assets/banner/cat/5.png';
+import imgCat6 from '../assets/banner/cat/6.png';
+import imgCat7 from '../assets/banner/cat/7.png';
+import imgCat8 from '../assets/banner/cat/8.png';
+import imgCat9 from '../assets/banner/cat/9.png';
+ 
 
 export const ImageList = [
-    img9, img8, img7, img6, img5, img4, img3, img2, img1
+    imgCat9, imgCat8, imgCat7, imgCat6, imgCat5, imgCat4, imgCat3, imgCat2, imgCat1
 ]
