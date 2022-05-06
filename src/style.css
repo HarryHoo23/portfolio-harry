@@ -32,7 +32,11 @@
 }
 
 .section {
-    padding: 5rem 0;
+    padding: 3rem 0;
+}
+
+.section.grey {
+    background-color: var(--backgroundColor-2);
 }
 
 .image-container {
@@ -65,4 +69,14 @@
 #tsparticles canvas{
     z-index: 2;
     position: absolute !important;
+}
+
+.cat {
+    max-width: 100px;
+}
+
+.skill-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }

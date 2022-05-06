@@ -43,11 +43,12 @@ const WeatherInfo = () => {
     
     useEffect(() => {
         fetchWeatherInfo();
-    }, []);
+        // eslint-disable-next-line 
+    }, [weather]);
     
     useEffect(() => {
         let timeStamp = setInterval(() => {
-            let timer = new Date().toLocaleTimeString();
+            let timer = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             setTime(timer);
         }, 1000 * 60);
         return () => {

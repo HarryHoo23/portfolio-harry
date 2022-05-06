@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styled from 'styled-components';
 import Button from "./components/elements/Button";
 import Circle from "./components/Circle";
 import MainBanner from "./components/MainBanner";
 import SkillsRow from "./components/SkillsRow";
+import AboutMe from "./components/AboutMe";
 import { useGlobalContext } from "./context/app_context";
 
 const Wrapper = styled.div`
@@ -62,6 +63,7 @@ const App = () => {
                 <Button className="theme-toggle" action={toggleTheme}>Change Color</Button>
                 <MainBanner />
             </Wrapper>
+            <AboutMe />
             <SkillsRow />
             <div className="vh-100"></div>
         </main>

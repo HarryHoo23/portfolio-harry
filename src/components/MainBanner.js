@@ -9,6 +9,7 @@ import TextParallax from './TextParallax';
 import { gsap } from 'gsap';
 import { Row, Col, Container } from "react-bootstrap";
 import { GiClick } from 'react-icons/gi';
+import cat from '../assets/icons/cat.svg';
 
 const ImageContainer = styled.div`
     display: grid;
@@ -43,15 +44,25 @@ const Heading = styled.h3`
     }
 `
 
+const Wrapper = styled.section`
+    width: 100%;
+
+    .z-index {
+        z-index: 3;
+    }
+`
+
 const MainBanner = () => {
     const [isFlipped, setIsFlipped] = useState(false);
     const containerRef = useRef(null);
     const overlayRef = useRef(null);
+    const catRef = useRef(null);
 
     useEffect(() => {
         setTimeout(() => {
             gsap.fromTo(overlayRef.current, { opacity: 1, height: "100%" }, {opacity: 0, height: 0, duration: 1, ease: 'power1.out'});
         }, 2000);
+        gsap.fromTo(catRef.current, { y: -100, x: 100}, {y: 0, x: 0, duration: 1, ease: 'power1.out'});
     }, []);
 
     const clickToFlip = () => {
@@ -60,30 +71,35 @@ const MainBanner = () => {
     }
 
     return (
-        <Container className="vh-100">
-            <Row className="h-100 align-items-center position-relative">
-                <WeatherInfo />
-                <TextParallax copy={`Harry${' '}Hu`} className="color-blue bold" wrapperClassName="position-absolute" />
-                <ParticlesBackground />
-                <Col md={6}>
-                    <h1 className="color-blue bold dash-title">Harry's personal project.</h1>
-                    <Heading>An Enthusiastic <span>Front-end</span> Web Developer</Heading>
-                    <p className="m-0">And I have a cute cat!</p>
-                </Col>
-                <Col md={5} className="offset-md-1" style={{zIndex: 3}}>
-                    <ImageContainer ref={containerRef}>
-                        <div className="overlay d-flex justify-content-center align-items-center" ref={overlayRef}>
-                            <GiClick color={"#9fb3c8"} size={"50px"} />
-                            <h2>Click to see the Effect</h2>
-                        </div>
-                        {ImageList.map((image, index) => {
-                            return <SplitImages key={index} image={image} action={clickToFlip} isFlipped={isFlipped} />
-                        })}       
-                    </ImageContainer>
-                    <Button className="mt-3 d-flex align-items-center" action={clickToFlip}>Click to Flip <GiClick color={"#9fb3c8"} size={"24px"} style={{marginLeft: "10px"}} /></Button>   
-                </Col>
-            </Row>
-        </Container>
+        <Wrapper>
+            <Container className="vh-100">
+                <Row className="h-100 align-items-center position-relative">
+                    <WeatherInfo />
+                    <TextParallax copy={`Harry${' '}Hu`} className="color-blue bold" wrapperClassName="position-absolute" />
+                    <ParticlesBackground />
+                    <Col md={6} className="z-index">
+                        <h1 className="color-blue bold dash-title">Harry's personal project.</h1>
+                        <Heading>An Enthusiastic <span>Front-end</span> Web Developer</Heading>
+                        <p className="m-0">
+                            And I have a cute <span className="semi-bold color-blue font-medium">cat!!</span>
+                            <img src={cat} alt="cat" className="cat" ref={catRef} />
+                        </p>
+                    </Col>
+                    <Col md={5} className="offset-md-1 z-index">
+                        <ImageContainer ref={containerRef}>
+                            <div className="overlay d-flex justify-content-center align-items-center" ref={overlayRef}>
+                                <GiClick color={"#9fb3c8"} size={"50px"} />
+                                <h2>Click to see the Effect</h2>
+                            </div>
+                            {ImageList.map((image, index) => {
+                                return <SplitImages key={index} image={image} action={clickToFlip} isFlipped={isFlipped} />
+                            })}       
+                        </ImageContainer>
+                        <Button className="mt-3 d-flex align-items-center" action={clickToFlip}>{!isFlipped ? "To See My Cat!" : "To See Me!"} <GiClick color={"#9fb3c8"} size={"24px"} style={{marginLeft: "10px"}} /></Button>   
+                    </Col>
+                </Row>
+            </Container>
+        </Wrapper>
     )
 }
 

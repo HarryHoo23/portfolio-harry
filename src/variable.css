@@ -1,3 +1,6 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@400;700&display=swap');
+
 :root {
     /* colors */
     --primary-50: #e0fcff;
@@ -31,7 +34,7 @@
     --green-dark: #0f5132;
   
     /* fonts  */
-    --headingFont: 'Roboto Condensed', Sans-Serif;
+    --headingFont: 'Roboto', Sans-Serif;
     --bodyFont: 'Cabin', Sans-Serif;
     --small-text: 12px;
     --extra-small-text: 10px;
@@ -57,6 +60,7 @@
 
 .dark-theme {
     --backgroundColor: #102a43;
+    --backgroundColor-2: #243b53;
     --textColor: #e0fcff;
     --btnBgColor: #bcccdc;
     --btnTextColor: #102a43;
@@ -65,7 +69,8 @@
 
 .light-theme {
     --backgroundColor: #f0f4f8;
-    --textColor: #102a43;
+    --backgroundColor-2: #d9e2ec;
+    --textColor: #243b53;
     --btnBgColor: #243b53;
     --btnTextColor: #e0fcff;
     --color-blue: #0a6c74;
@@ -96,6 +101,14 @@ h5 {
 small,
 .text-small {
   font-size: var(--small-text);
+}
+
+.text-medium {
+    font-size: 16px;
+}
+
+.text-large {
+    font-size: 18px;
 }
 
 .full-height {
