@@ -28,43 +28,46 @@ const WeatherInfo = () => {
 
     const url = `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}&units=metric&q=sydney`;
 
-    const [weather, setWeather] = useState();
-    const [time, setTime] = useState(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
+    const [weather, setWeather] = useState(null);
+    const [hasError, setHasError] = useState(false);
+    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
     const fetchWeatherInfo = async () => {
         try {
             const response = await fetch(url);
             const data = await response.json();
+            setHasError(false);
             setWeather(data);
         } catch (error) {
-            console.log(error);
+            setWeather(null);
+            setHasError(true);
         }
     }
     
     useEffect(() => {
         fetchWeatherInfo();
         // eslint-disable-next-line 
-    }, [weather]);
-    
-    useEffect(() => {
-        let timeStamp = setInterval(() => {
-            let timer = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            setTime(timer);
-        }, 1000 * 60);
-        return () => {
-            clearInterval(timeStamp);
-        }
-    }, [])
+    }, []);
 
+    if (weather !== null && !hasError) {
+        return (
+            <Wrapper>
+                <Logo />
+                {weather !== null && !hasError && <>
+                    <div className="d-flex align-items-center">
+                        <img src={cityIcon} alt="city" />
+                        <p className="color-blue mb-0"><span className="semi-bold">In</span> {weather.name} ({time}) | <span className="semi-bold">Temp:</span> {weather.main.temp} &#8451;</p>
+                    </div>
+                </>}
+                {hasError && <p>Something went wrong!</p>}
+            </Wrapper>
+        )
+    }
+    
     return (
         <Wrapper>
             <Logo />
-            {weather && <>
-                <div className="d-flex align-items-center">
-                    <img src={cityIcon} alt="city" />
-                    <p className="color-blue mb-0"><span className="semi-bold">In</span> {weather.name} ({time}) | <span className="semi-bold">Temp:</span> {weather.main.temp} &#8451;</p>
-                </div>
-            </>}
+            {hasError && <p>Something went wrong!</p>}
         </Wrapper>
     )
 }
