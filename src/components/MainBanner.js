@@ -1,11 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import { ImageList } from '../data/BannerImage';
 import SplitImages from './elements/SplitImages';
+import WeatherInfo from './header&footer/WeatherInfo';
+import Button from './elements/Button';
+import ParticlesBackground from './ParticlesBackground';
+import { ImageList } from '../data/BannerImage';
+import TextParallax from './TextParallax';
 import { gsap } from 'gsap';
 import { Row, Col, Container } from "react-bootstrap";
-import Button from './elements/Button';
-import TextParallax from './TextParallax';
 import { GiClick } from 'react-icons/gi';
 
 const ImageContainer = styled.div`
@@ -60,13 +62,15 @@ const MainBanner = () => {
     return (
         <Container className="vh-100">
             <Row className="h-100 align-items-center position-relative">
+                <WeatherInfo />
                 <TextParallax copy={`Harry${' '}Hu`} className="color-blue bold" wrapperClassName="position-absolute" />
+                <ParticlesBackground />
                 <Col md={6}>
                     <h1 className="color-blue bold dash-title">Harry's personal project.</h1>
                     <Heading>An Enthusiastic <span>Front-end</span> Web Developer</Heading>
                     <p className="m-0">And I have a cute cat!</p>
                 </Col>
-                <Col md={5} className="offset-md-1">
+                <Col md={5} className="offset-md-1" style={{zIndex: 3}}>
                     <ImageContainer ref={containerRef}>
                         <div className="overlay d-flex justify-content-center align-items-center" ref={overlayRef}>
                             <GiClick color={"#9fb3c8"} size={"50px"} />

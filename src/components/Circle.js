@@ -8,7 +8,7 @@ const CirclePointer = styled.div`
     top: 0;
     left: 0;
     opacity: 0.3;
-    z-index: -1;
+    z-index: --2;
     border-radius: 50%;
     background-color: var(--primary-300);
 

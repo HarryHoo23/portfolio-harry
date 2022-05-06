@@ -6,8 +6,7 @@ import MainBanner from "./components/MainBanner";
 import SkillsRow from "./components/SkillsRow";
 import { useGlobalContext } from "./context/app_context";
 
-
-const Wrapper = styled.main`
+const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,35 +15,15 @@ const Wrapper = styled.main`
     .theme-toggle {
         position: fixed;
         top: 1rem;
-        right: 2rem
+        right: 2rem;
+        z-index: 10;
     }
 `
 
-const getStorageTheme = () => {
-    let theme = 'light-theme';
-    if (localStorage.getItem('theme')) {
-      theme = localStorage.getItem('theme');
-    }
-    return theme;
-};
-
 const App = () => {
-    const { isLoading } = useGlobalContext();
+    const { isLoading, toggleTheme } = useGlobalContext();
     const circleRef = useRef([]);
     circleRef.current = [];
-    const [theme, setTheme] = useState(getStorageTheme());
-    const toggleTheme = () => {
-        if (theme === 'light-theme') {
-          setTheme('dark-theme');
-        } else {
-          setTheme('light-theme');
-        }
-    };
-
-    useEffect(() => {
-        document.documentElement.className = theme;
-        localStorage.setItem('theme', theme);
-    }, [theme]);
 
     useEffect(() => {
         circleRef.current.forEach(ref => ref.moveTo(window.innerWidth / 2, window.innerHeight / 2));
@@ -73,7 +52,7 @@ const App = () => {
     }
 
     return (
-        <>
+        <main>
             <Wrapper>
                 <div>
                     <Circle size="sm" ref={addCircleRef} delay={0} />
@@ -85,7 +64,7 @@ const App = () => {
             </Wrapper>
             <SkillsRow />
             <div className="vh-100"></div>
-        </>
+        </main>
     )
 }
 
