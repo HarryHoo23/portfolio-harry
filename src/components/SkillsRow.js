@@ -139,11 +139,11 @@ const SkillsRow = () => {
                         <Col md={4} className="pt-lg-5 pt-2 text-block">
                             <p className="text-left text-large">Here is what I do, I am confident in building any front-end web applications, in different skills, such as <span className="color-blue">React.js, Html5, Css, Jquery</span>, or Wordpress.</p>
                             <p className="text-left text-large">
-                                And I consider myself very self-motivated, I kept learn new things to fullfill my skillset.
+                                And I consider myself very self-motivated, I kept learn new things to fullfill my skillset. Trying to be a qualified full-stack developer in the coming years.
                             </p>
                         </Col>
-                    <Col md={8} className="p-2 p-lg-5">
-                        <TabSkills defaultKey="mainSkill" firstTitle="Main Skills" firstKey="mainSkill" secondKey="otherSkill" secondTitle="Other Skills" firstChild={progressSkillBar()} secondChild={otherSkillContainer()} />
+                        <Col md={8} className="p-2 p-lg-5">
+                            <TabSkills defaultKey="mainSkill" firstTitle="Main Skills" firstKey="mainSkill" secondKey="otherSkill" secondTitle="Other Skills" firstChild={progressSkillBar()} secondChild={otherSkillContainer()} />
                         </Col>
                     </Row>
                 </Container>

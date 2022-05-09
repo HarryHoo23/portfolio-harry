@@ -2,7 +2,7 @@ import { ProgressBar as Progress } from "react-bootstrap"
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { gsap } from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 const Wrapper = styled.div`
