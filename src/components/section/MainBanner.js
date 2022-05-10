@@ -1,15 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import SplitImages from './elements/SplitImages';
-import WeatherInfo from './header&footer/WeatherInfo';
-import Button from './elements/Button';
-import ParticlesBackground from './ParticlesBackground';
-import { ImageList } from '../data/BannerImage';
-import TextParallax from './TextParallax';
+import SplitImages from '../elements/SplitImages';
+import WeatherInfo from '../header&footer/WeatherInfo';
+import Button from '../elements/Button';
+import ParticlesBackground from '../ParticlesBackground';
+import { ImageList } from '../../data/BannerImage';
+import TextParallax from '../TextParallax';
 import { gsap } from 'gsap';
 import { Row, Col, Container } from "react-bootstrap";
 import { GiClick } from 'react-icons/gi';
-import cat from '../assets/icons/cat.svg';
+import cat from '../../assets/icons/cat.svg';
 
 const ImageContainer = styled.div`
     display: grid;
@@ -72,11 +72,11 @@ const MainBanner = () => {
 
     return (
         <Wrapper>
+            <ParticlesBackground />
             <Container className="vh-100">
                 <Row className="h-100 align-items-center position-relative">
                     <WeatherInfo />
                     <TextParallax copy={`Harry${' '}Hu`} className="color-blue bold" wrapperClassName="position-absolute" />
-                    <ParticlesBackground />
                     <Col md={6} className="z-index">
                         <h1 className="color-blue bold dash-title">Harry's personal project.</h1>
                         <Heading>An Enthusiastic <span>Front-end</span> Web Developer</Heading>

@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import SectionCurve from "./elements/SectionCurve";
-import Title from "./elements/Title";
+import SectionCurve from "../elements/SectionCurve";
+import Title from "../elements/Title";
 import styled from 'styled-components';
-import musicIcon from '../assets/icons/music.svg';
+import musicIcon from '../../assets/icons/music.svg';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";

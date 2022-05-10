@@ -1,10 +1,10 @@
-import ProgressBar from "./elements/ProgressBar";
-import { skill_set } from "../data/Skills";
+import ProgressBar from "../elements/ProgressBar";
+import { skill_set } from "../../data/Skills";
 import styled from 'styled-components';
 import { Col, Row, Container } from "react-bootstrap";
-import Title from "./elements/Title";
-import computerIcon from '../assets/icons/computer.svg';
-import TabSkills from "./elements/TabSkills";
+import Title from "../elements/Title";
+import computerIcon from '../../assets/icons/computer.svg';
+import TabSkills from "../elements/TabSkills";
 import { IoCodeOutline, IoCodeSlash, IoCodeWorkingOutline } from 'react-icons/io5';
 
 const Wrapper = styled.section`

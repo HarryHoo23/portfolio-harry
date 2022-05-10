@@ -7,7 +7,6 @@ const ParticlesBackground = () => {
         await loadFull(main);
     };
 
-    
     return (
         <Particles
             id="tsparticles"
@@ -17,7 +16,7 @@ const ParticlesBackground = () => {
                     enable: false,
                     zIndex: 1
                 },
-                background: { color: "transparent" },
+                
                 fpsLimit: 60,
                 interactivity: {
                     detect_on: "canvas",
@@ -40,10 +39,10 @@ const ParticlesBackground = () => {
                 },
                 particles: {
                     color: {
-                        value: "102a43"
+                        value: "243b53"
                     },
                     lineLinked: {
-                        color: "#0e7c86",
+                        color: "#38bec9",
                         distance: 200,
                         enable: true,
                         opacity: 0.5,

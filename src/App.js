@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import styled from 'styled-components';
 import Button from "./components/elements/Button";
 import Circle from "./components/Circle";
-import MainBanner from "./components/MainBanner";
-import SkillsRow from "./components/SkillsRow";
-import AboutMe from "./components/AboutMe";
+import MainBanner from "./components/section/MainBanner";
+import SkillsRow from "./components/section/SkillsRow";
+import AboutMe from "./components/section/AboutMe";
+import Projects from "./components/section/Projects";
 import { useGlobalContext } from "./context/app_context";
 
 const Wrapper = styled.div`
@@ -57,15 +58,16 @@ const App = () => {
             <Wrapper>
                 <div>
                     <Circle size="sm" ref={addCircleRef} delay={0} />
-                    <Circle size="md" ref={addCircleRef} delay={0.1} />
-                    <Circle size="lg" ref={addCircleRef} delay={0.2} />
+                    <Circle size="md" ref={addCircleRef} delay={0.1} />                    
                 </div>
                 <Button className="theme-toggle" action={toggleTheme}>Change Color</Button>
                 <MainBanner />
             </Wrapper>
             <AboutMe />
             <SkillsRow />
-            <div className="vh-100"></div>
+            <div className="vh-100">
+                <Projects />
+            </div>
         </main>
     )
 }
