@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import cityIcon from '../../assets/icons/location.svg';
 import styled from "styled-components";
+import axios from "axios";
 
 const Wrapper = styled.div`
     display: flex;
@@ -26,16 +27,13 @@ const Wrapper = styled.div`
 
 const WeatherInfo = () => {
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}&units=metric&q=sydney`;
-
     const [weather, setWeather] = useState(null);
     const [hasError, setHasError] = useState(false);
     const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
     const fetchWeatherInfo = async () => {
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
+        try {                
+            const { data } = await axios.get('/api/weather');
             setHasError(false);
             setWeather(data);
         } catch (error) {

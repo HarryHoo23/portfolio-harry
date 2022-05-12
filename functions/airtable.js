@@ -1,6 +1,28 @@
+require('dotenv').config();
+const Airtable = require('airtable-node');
+
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appizJXuwrpomyW4b').table('projects');
+
+
 exports.handler = async (event, context) => {
-    return {
-        statusCode: 200,
-        body: 'First netlify functions.'
+    try {
+        const { records } = await airtable.list();
+        const projects = records.map((project) => {
+            const { id } = project;
+            const { name, img, url, description, tech } = project.fields;
+            const imgUrl = img[0].url;
+            return { id, name, url, description, tech, imgUrl }
+        })
+        return {
+            headers: {
+            'Access-Control-Allow-Origin': '*',
+            },
+            statusCode: 200,
+            body: JSON.stringify(projects)
+          }
+    } catch (error) {
+        return {
+            statusCode: 500, body: 'Server Error'
+        }
     }
 }
