@@ -107,8 +107,16 @@ small,
     font-size: 16px;
 }
 
+.text-smaller {
+    font-size: 14px;
+}
+
 .text-large {
     font-size: 18px;
+}
+
+.text-extra-large {
+    font-size: 28px;
 }
 
 .full-height {

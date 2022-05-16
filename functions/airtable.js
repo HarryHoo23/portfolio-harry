@@ -9,9 +9,9 @@ exports.handler = async (event, context) => {
         const { records } = await airtable.list();
         const projects = records.map((project) => {
             const { id } = project;
-            const { name, img, url, description, tech } = project.fields;
+            const { name, img, url, description, tech, date } = project.fields;
             const imgUrl = img[0].url;
-            return { id, name, url, description, tech, imgUrl }
+            return { id, name, url, description, tech, imgUrl, date }
         })
         return {
             headers: {
